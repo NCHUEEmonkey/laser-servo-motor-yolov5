@@ -1,13 +1,18 @@
-# laser-servo-motor-yolov5
-先做出機械結構，再上傳code到arduino
-去下載yolov5資料夾，就可以辨識
-#(COCO 0: 'person')
-        for *xyxy, conf, cls in results.xyxy[0]:
-            if int(cls) == 0:  # 只保留 'person'
-                x1, y1, x2, y2 = map(int, xyxy)
-                w, h = x2 - x1, y2 - y1
-                cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 5)
-                send_coordinates_to_arduino(x1, y1, w, h)
+# Laser-Servo-Motor-YOLOv5
+
+這個項目結合了雷射、伺服馬達與 YOLOv5，用來辨識物體並進行相應的動作。
+
+## 步驟
+
+1. **構建機械結構**：先完成硬體部分的搭建，包括雷射和伺服馬達的安裝。
+2. **上傳程式碼到 Arduino**：將控制雷射和伺服馬達的程式碼上傳至 Arduino 控制板。
+3. **下載 YOLOv5**：去下載 YOLOv5 資料夾，並設置好環境以進行物體辨識。
+
+## YOLOv5 辨識物體類別
+
+本項目使用 COCO 資料集中的物體類別進行辨識。以下是部分類別列表及其對應的數字編號：
+
+
 0 - Person
 1 - Bicycle
 2 - Car
