@@ -2,11 +2,23 @@
 
 這個項目結合了雷射、伺服馬達與 YOLOv5，用來辨識物體並進行相應的動作。
 
+
+
 ## 步驟
 
 1. **構建機械結構**：先完成硬體部分的搭建，包括雷射和伺服馬達的安裝。
 2. **上傳程式碼到 Arduino**：將控制雷射和伺服馬達的程式碼上傳至 Arduino 控制板。
 3. **下載 YOLOv5**：去下載 YOLOv5 資料夾，並設置好環境以進行物體辨識。
+
+### 程式碼示例
+
+以下是用於辨識並保留 `person` 類別的程式碼片段：
+
+```python
+# (COCO 0: 'person')
+for *xyxy, conf, cls in results.xyxy[0]:
+    if int(cls) == 0:  # 只保留 'person'
+        # 這裡是處理 'person' 的邏輯
 
 ## YOLOv5 辨識物體類別
 
@@ -93,3 +105,5 @@
 77 - Teddy Bear
 78 - Hair Drier
 79 - Toothbrush
+```
+
